@@ -1,5 +1,6 @@
 from langchain.chains import ConversationChain
 from langchain.llms import OpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 
 from dotenv import load_dotenv
@@ -9,7 +10,7 @@ load_dotenv()
 
 
 # 初始化语言模型
-llm = OpenAI(temperature=0.7)
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7)
 
 # 创建ConversationChain，默认带有ConversationBufferMemory
 conversation = ConversationChain(llm=llm)

@@ -1,19 +1,25 @@
-from langchain_core.prompts import PromptTemplate
-template = """以下是一个人类和AI之间的友好对话。AI很健谈，从其上下文中提供了很多具体细节。如果AI不知道答案，它会如实说不知道。如果相关，你会得到有关人类提到的实体的信息。
+import numpy as np
+def polynomial(X, degree):
+    return np.hstack([X**i for i in range(1, degree + 1)])
 
-   相关实体信息:
-   {entities}
-
-   对话:
-   人类: {input}
-   AI:"""
-prompt = PromptTemplate(input_variables=["entities", "input"], template=template)
-
-result = prompt.invoke(input={"entities": "猴子","input":"冷"})
-
-print(result)
+list2 = [[1], [2],[3]]
 
 
 
 
+# print(type(list2))
 
+# arr1d = [i for i in range(10)]
+#
+#
+# print(type(arr1d))
+
+# 从列表创建一维数组
+arr1d = np.array([1, 2, 3, 4, 5])
+# arr2d =arr1d**2
+# print(arr2d)
+a= arr1d.reshape(-1,1)
+arr5d =polynomial(a,5)
+
+print(arr5d.shape)
+print(arr5d)

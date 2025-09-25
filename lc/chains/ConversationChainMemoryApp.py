@@ -1,5 +1,5 @@
 from langchain.chains import ConversationChain
-from langchain_openai import OpenAI
+from langchain_openai import OpenAI,ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory  # 导入 ConversationBufferMemory 类，用于管理对话缓冲区内存
 
@@ -10,7 +10,8 @@ load_dotenv()
 
 
 # 初始化语言模型
-llm = OpenAI(temperature=0.7)
+# llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7)
+llm = OpenAI(model="gpt-3.5-turbo", temperature=0.7)
 
 
 
