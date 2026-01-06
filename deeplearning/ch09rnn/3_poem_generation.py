@@ -107,7 +107,7 @@ def train(model, dataset, lr, epoch_num, batch_size, device):
     return model
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-train(model, dataset, lr=1e-3, epoch_num=20, batch_size=32, device=device)
+train(model, dataset, lr=1e-3, epoch_num=10, batch_size=32, device=device)
 
 # 5. 生成文本
 def generate_poem(model, vocab, word2id, start_token, line_num=4, line_length=7):
@@ -131,6 +131,7 @@ def generate_poem(model, vocab, word2id, start_token, line_num=4, line_length=7)
                 # 生成每句诗的 line_length个字
                 while current_len > 0:
                     # 前向传播
+                    print(input.shape)
                     output, _ = model(input)
                     prob = torch.softmax(output[0,0], dim=-1)
                     # 按概率进行随机选取
